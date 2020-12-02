@@ -22,9 +22,9 @@ func (b BaseRepository) FindById(receiver interface{}, id uint) error {
 	return b.Db.First(receiver, id).Error
 }
 
-func (b BaseRepository) Store(objects models.IModel) error {
-	objects.Setter(b.NewKey(objects))
-	return b.Db.Create(objects).Error
+func (b BaseRepository) Store(object models.IModel) error {
+	object.Setter(b.NewKey(object))
+	return b.Db.Create(object).Error
 }
 
 func (b BaseRepository) Update(objects interface{}) error {
